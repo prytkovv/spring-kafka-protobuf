@@ -12,3 +12,6 @@ mvn clean install
 ```
 java -jar ./target/spring-kafka-protobuf-0.0.1-SNAPSHOT.jar
 ```
+
+## Additional notes
+[protobuf compiler](https://github.com/protocolbuffers/protobuf/releases/tag/v24.4)
