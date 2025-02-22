@@ -10,9 +10,15 @@ import ru.prytkovv.demo.proto.Product;
 @Service
 public class KafkaProductMessageListener {
 
+    private final ProductService productService;
+
+    public KafkaProductMessageListener(ProductService productService) {
+        this.productService = productService;
+    }
+
     @KafkaListener(topics = "${spring.kafka.consumer.topic-name}")
     public void listen(Product product) {
-        log.info(String.format("Acquired new product: %s", product.toString()));
+        productService.createProduct(product);
     }
 
 }
