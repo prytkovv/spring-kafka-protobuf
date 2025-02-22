@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package com.example.kafka;
+
+option java_multiple_files = true;
+option java_package = "ru.prytkovv.demo.proto";
+option java_outer_classname = "ProductProto";
+
+
+message Image {
+    bytes content = 1;
+    int32 width = 2;
+    int32 height = 3;
+    string format = 4;
+    string camera_id = 5;
+}
+
+message Product {
+    Image image = 1;
+    string barcode = 2;
+    int32 category_id = 3;
+    int32 manufacturer_id = 4;
+    google.protobuf.Timestamp manufactured_at = 5;
+    google.protobuf.Timestamp created_at = 6;
+}
