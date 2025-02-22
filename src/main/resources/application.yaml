@@ -7,6 +7,9 @@ spring:
   application:
     name: spring-kafka-protobuf
   kafka:
+    container-factory:
+      concurrency: 4
+      poll-timeout: 3000
     bootstrap-servers: localhost:9092
     consumer:
       topic-name: product.issued
