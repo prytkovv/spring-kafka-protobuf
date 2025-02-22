@@ -2,6 +2,7 @@ package ru.prytkovv.demo.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Service;
 import ru.prytkovv.demo.proto.Product;
 
@@ -17,8 +18,9 @@ public class KafkaProductMessageListener {
     }
 
     @KafkaListener(topics = "${spring.kafka.consumer.topic-name}")
-    public void listen(Product product) {
+    public void listen(Product product, Acknowledgment ack) {
         productService.createProduct(product);
+        ack.acknowledge();
     }
 
 }
