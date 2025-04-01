@@ -37,7 +37,7 @@ pip install -r requirements.txt
 
 Start the application:
 ```
-java -jar ./target/spring-kafka-protobuf-{version}.jar
+mvn spring-boot:run
 ```
 
 Send messages:
